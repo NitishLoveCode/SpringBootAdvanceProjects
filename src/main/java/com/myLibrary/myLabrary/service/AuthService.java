@@ -50,7 +50,7 @@ public class AuthService {
     public UserResponse register(UserRegisterRequest request){
         String email = request.getEmail().trim().toLowerCase();
 
-        if(userRepository.existByEmail(email)){
+        if(userRepository.existsByEmail(email)){
             throw new DublicateResourceException("Email is already registerd");
         }
 

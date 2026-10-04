@@ -41,7 +41,7 @@ public class User {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column (name = "frist_name", nullable = false, length = 50)
+    @Column (name = "first_name", nullable = false, length = 50)
     private String fristName;
     
     @Column (name = "last_name", nullable = false, length = 50)
@@ -63,7 +63,7 @@ public class User {
     @Column (name = "created_at", nullable = false)
     private LocalDateTime createAt;
 
-    @Column (name = "updated_d", nullable = false)
+    @Column (name = "updated_at", nullable = false)
     private LocalDateTime updateAt;
 
     @ManyToMany (fetch = FetchType.LAZY)
