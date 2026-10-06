@@ -23,14 +23,11 @@ public class AuthService {
 
 
 
-    @Autowired 
     private final UserRepository userRepository;
 
-    @Autowired 
     private  final RoleRepository roleRepository;
 
-    @Autowired 
-    private final PasswordEncoder passwordEncoder;
+    private PasswordEncoder passwordEncoder;
 
 
     public AuthService(
@@ -61,10 +58,14 @@ public class AuthService {
 
         User user = new User();
 
+
+        // Password encoder
+        String encodePassword = passwordEncoder.encode(request.getPassword());
+
         user.setFristName(request.getFristName());
         user.setLastName(request.getLastName());
         user.setEmail(request.getEmail());
-        user.setPassword(request.getPassword());
+        user.setPassword(encodePassword);
         user.setPhone(request.getPhone());
         user.setRoles(Set.of(mamberRole));
 
